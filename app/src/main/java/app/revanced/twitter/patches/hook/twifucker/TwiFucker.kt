@@ -202,6 +202,40 @@ internal object TwiFucker {
         }
     }
 
+    private fun JSONObject.entryIsWhoToBlue(): Boolean = optJSONObject("content")
+        ?.optJSONObject("itemContent")
+        ?.optJSONObject("tweet_result")
+        ?.optJSONObject("result")
+        ?.optJSONObject("core")
+        ?.optJSONObject("user_result")
+        ?.optJSONObject("result")
+        ?.optBoolean("is_blue_verified") ?: true
+
+    fun JSONArray.entriesRemoveWhoToBlue() {
+        val entryRemoveIndex = mutableListOf<Int>()
+        forEachIndexed { entryIndex, entry ->
+            if (!entry.entryIsWhoToBlue()) return@forEachIndexed
+
+            entryRemoveIndex.add(entryIndex)
+
+            val items = entry.entryGetContentItems()
+            val userRemoveIndex = mutableListOf<Int>()
+            items?.forEachIndexed { index, item ->
+                item.itemContainsPromotedUser().let {
+                    if (it) {
+                        userRemoveIndex.add(index)
+                    }
+                }
+            }
+            for (i in userRemoveIndex.reversed()) {
+                items?.remove(i)
+            }
+        }
+        for (i in entryRemoveIndex.reversed()) {
+            remove(i)
+        }
+    }
+
     fun hideRecommendedUsers(json: JSONObject) {
         json.filterInstructions { it.entriesRemoveWhoToFollow() }
         json.jsonCheckAndRemoveRecommendedUsers()
@@ -210,6 +244,10 @@ internal object TwiFucker {
     fun hidePromotedAds(json: JSONObject) {
         json.filterInstructions { it.entriesRemoveAnnoyance() }
         json.jsonGetData()?.dataCheckAndRemove()
+    }
+
+    fun hideBlueUsers(json: JSONObject) {
+        json.filterInstructions { it.entriesRemoveWhoToBlue() }
     }
 
     private fun JSONObject.filterInstructions(action: (JSONArray) -> Unit) {
