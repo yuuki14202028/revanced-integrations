@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/yuuki14202028/revanced-integrations/compare/v1.1.0...v1.2.0) (2024-01-09)
+
+
+### Features
+
+* release ([bba5b94](https://github.com/yuuki14202028/revanced-integrations/commit/bba5b944f41efa9d3a28faf99a6eeb2556d41d9b))
+
 # [1.1.0](https://github.com/yuuki14202028/revanced-integrations/compare/v1.0.0...v1.1.0) (2024-01-09)
 
 
