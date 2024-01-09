@@ -248,7 +248,6 @@ internal object TwiFucker {
 
     fun hideBlueUsers(json: JSONObject) {
         json.filterInstructions { it.entriesRemoveWhoToBlue() }
-
     }
 
     private fun JSONObject.filterInstructions(action: (JSONArray) -> Unit) {
