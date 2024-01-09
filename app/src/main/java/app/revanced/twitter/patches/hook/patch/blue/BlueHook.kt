@@ -1,4 +1,4 @@
-package app.revanced.twitter.patches.hook.patch.ads
+package app.revanced.twitter.patches.hook.patch.blue
 
 
 import app.revanced.twitter.patches.hook.json.BaseJsonHook
