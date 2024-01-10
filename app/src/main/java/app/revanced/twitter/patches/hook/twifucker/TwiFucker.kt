@@ -240,7 +240,7 @@ internal object TwiFucker {
             val items = entry.entryGetContentItems()
             val userRemoveIndex = mutableListOf<Int>()
             items?.forEachIndexed { index, item ->
-                Lod.d("ReVanced", "ふわ〜 ${item}")
+                Log.d("ReVanced", "ふわ〜 ${item}")
                 userRemoveIndex.add(index)
             }
             for (i in userRemoveIndex.reversed()) {
