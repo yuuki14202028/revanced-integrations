@@ -209,7 +209,14 @@ internal object TwiFucker {
         ?.optJSONObject("core")
         ?.optJSONObject("user_result")
         ?.optJSONObject("result")
-        ?.optBoolean("is_blue_verified") ?: false
+        ?.optBoolean("is_blue_verified") ?: optJSONObject("content")
+        ?.optJSONObject("content")
+        ?.optJSONObject("tweet-result")
+        ?.optJSONObject("result")
+        ?.optJSONObject("core")
+        ?.optJSONObject("user_result")
+        ?.optJSONObject("result")
+        ?.optBoolean("is_blue_verified") ?: true
 
     fun JSONArray.entriesRemoveWhoToBlue() {
         val entryRemoveIndex = mutableListOf<Int>()
