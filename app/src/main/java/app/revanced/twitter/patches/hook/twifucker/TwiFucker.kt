@@ -206,13 +206,6 @@ internal object TwiFucker {
         ?.optJSONObject("content")
         ?.optJSONObject("tweetResult")
         ?.optJSONObject("result")
-        ?.optJSONObject("core")
-        ?.optJSONObject("user_result")
-        ?.optJSONObject("result")
-        ?.optBoolean("is_blue_verified") ?: optJSONObject("content")
-        ?.optJSONObject("content")
-        ?.optJSONObject("tweetResult")
-        ?.optJSONObject("result")
         ?.optJSONObject("legacy")
         ?.optJSONObject("retweeted_status_result")
         ?.optJSONObject("result")
@@ -228,23 +221,21 @@ internal object TwiFucker {
         ?.optJSONObject("core")
         ?.optJSONObject("user_result")
         ?.optJSONObject("result")
+        ?.optBoolean("is_blue_verified") ?: optJSONObject("content")
+        ?.optJSONObject("content")
+        ?.optJSONObject("tweetResult")
+        ?.optJSONObject("result")
+        ?.optJSONObject("core")
+        ?.optJSONObject("user_result")
+        ?.optJSONObject("result")
         ?.optBoolean("is_blue_verified") ?: false
 
     fun JSONArray.entriesRemoveWhoToBlue() {
         val entryRemoveIndex = mutableListOf<Int>()
         forEachIndexed { entryIndex, entry ->
-            if (!entry.entryIsWhoToBlue()) return@forEachIndexed
-
-            entryRemoveIndex.add(entryIndex)
-
-            val items = entry.entryGetContentItems()
-            val userRemoveIndex = mutableListOf<Int>()
-            items?.forEachIndexed { index, item ->
-                Log.d("ReVanced", "ふわ〜 ${item}")
-                userRemoveIndex.add(index)
-            }
-            for (i in userRemoveIndex.reversed()) {
-                items?.remove(i)
+            if (entry.entryIsWhoToBlue()) {
+                Log.d("ReVanced", "Handle timeline blue $entryIndex $entry")
+                entryRemoveIndex.add(entryIndex)
             }
         }
         for (i in entryRemoveIndex.reversed()) {
