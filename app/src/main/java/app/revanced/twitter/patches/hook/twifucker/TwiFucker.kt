@@ -220,6 +220,14 @@ internal object TwiFucker {
         ?.optJSONObject("core")
         ?.optJSONObject("user_result")
         ?.optJSONObject("result")
+        ?.optBoolean("is_blue_verified") ?: optJSONObject("content")
+        ?.optJSONObject("content")
+        ?.optJSONObject("tweetResult")
+        ?.optJSONObject("result")
+        ?.optJSONObject("tweet")
+        ?.optJSONObject("core")
+        ?.optJSONObject("user_result")
+        ?.optJSONObject("result")
         ?.optBoolean("is_blue_verified") ?: false
 
     fun JSONArray.entriesRemoveWhoToBlue() {
@@ -238,6 +246,13 @@ internal object TwiFucker {
                     ?.optJSONObject("result")
                     ?.optJSONObject("legacy")
                     ?.optJSONObject("retweeted_status_result")
+                    ?.optJSONObject("result")
+                    ?.optJSONObject("tweet")
+            }")
+            Log.d("ReVanced", "にゃん~~ RT!:${entry.entryIsWhoToBlue()}: ${
+                entry.optJSONObject("content")
+                    ?.optJSONObject("content")
+                    ?.optJSONObject("tweetResult")
                     ?.optJSONObject("result")
                     ?.optJSONObject("tweet")
             }")
