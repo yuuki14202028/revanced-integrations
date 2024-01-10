@@ -236,6 +236,12 @@ internal object TwiFucker {
         }
     }
 
+    private fun JSONObject.blueDataCheckAndRemove() {
+        dataGetInstructions()?.forEach { instruction ->
+            instruction.instructionCheckAndRemove { it.entriesRemoveWhoToBlue() }
+        }
+    }
+
     fun hideRecommendedUsers(json: JSONObject) {
         json.filterInstructions { it.entriesRemoveWhoToFollow() }
         json.jsonCheckAndRemoveRecommendedUsers()
@@ -248,6 +254,8 @@ internal object TwiFucker {
 
     fun hideBlueUsers(json: JSONObject) {
         json.filterInstructions { it.entriesRemoveWhoToBlue() }
+        json.jsonGetData()?.blueDataCheckAndRemove()
+        Log.d("ReVanced", "うわぁ！ $json")
     }
 
     private fun JSONObject.filterInstructions(action: (JSONArray) -> Unit) {
