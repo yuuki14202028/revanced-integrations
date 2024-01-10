@@ -233,29 +233,6 @@ internal object TwiFucker {
     fun JSONArray.entriesRemoveWhoToBlue() {
         val entryRemoveIndex = mutableListOf<Int>()
         forEachIndexed { entryIndex, entry ->
-            Log.d("ReVanced", "にゃん~~:${entry.entryIsWhoToBlue()}: ${
-                entry.optJSONObject("content")
-                    ?.optJSONObject("content")
-                    ?.optJSONObject("tweetResult")
-                    ?.optJSONObject("result")
-            }")
-            Log.d("ReVanced", "にゃん~~ RT?:${entry.entryIsWhoToBlue()}: ${
-                entry.optJSONObject("content")
-                    ?.optJSONObject("content")
-                    ?.optJSONObject("tweetResult")
-                    ?.optJSONObject("result")
-                    ?.optJSONObject("legacy")
-                    ?.optJSONObject("retweeted_status_result")
-                    ?.optJSONObject("result")
-                    ?.optJSONObject("tweet")
-            }")
-            Log.d("ReVanced", "にゃん~~ RT!:${entry.entryIsWhoToBlue()}: ${
-                entry.optJSONObject("content")
-                    ?.optJSONObject("content")
-                    ?.optJSONObject("tweetResult")
-                    ?.optJSONObject("result")
-                    ?.optJSONObject("tweet")
-            }")
             if (!entry.entryIsWhoToBlue()) return@forEachIndexed
 
             entryRemoveIndex.add(entryIndex)
@@ -263,11 +240,8 @@ internal object TwiFucker {
             val items = entry.entryGetContentItems()
             val userRemoveIndex = mutableListOf<Int>()
             items?.forEachIndexed { index, item ->
-                item.itemContainsPromotedUser().let {
-                    if (it) {
-                        userRemoveIndex.add(index)
-                    }
-                }
+                Lod.d("ReVanced", "ふわ〜 ${item}")
+                userRemoveIndex.add(index)
             }
             for (i in userRemoveIndex.reversed()) {
                 items?.remove(i)
