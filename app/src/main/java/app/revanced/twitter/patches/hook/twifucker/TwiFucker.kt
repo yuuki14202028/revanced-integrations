@@ -243,7 +243,7 @@ internal object TwiFucker {
                 if (item.entryIsWhoToBlue()) {
                     Log.d("ReVanced", "Handle timeline replies blue $entryIndex $entry")
                     if (contentItems.length() == 1) {
-                        removeIndex.add(entryIndex)
+                        entryRemoveIndex.add(entryIndex)
                     } else {
                         innerRemoveIndex.add(itemIndex)
                     }
