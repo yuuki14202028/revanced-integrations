@@ -228,7 +228,7 @@ internal object TwiFucker {
                     ?.optJSONObject("result")
                     ?.optJSONObject("core")
                     ?.optJSONObject("user_result")
-                    ?.optJSONObject("result") ?: optJSONObject("content")
+                    ?.optJSONObject("result") ?: entry.optJSONObject("content")
                     ?.optJSONObject("content")
                     ?.optJSONObject("tweet-result")
                     ?.optJSONObject("result")
