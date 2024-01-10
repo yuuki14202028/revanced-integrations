@@ -238,6 +238,7 @@ internal object TwiFucker {
 
     private fun JSONObject.blueDataCheckAndRemove() {
         dataGetInstructions()?.forEach { instruction ->
+            Log.d("ReVanced", "多分Tweet: $instruction")
             instruction.instructionCheckAndRemove { it.entriesRemoveWhoToBlue() }
         }
     }
