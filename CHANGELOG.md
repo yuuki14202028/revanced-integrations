@@ -1,3 +1,11 @@
+# [1.16.0](https://github.com/yuuki14202028/revanced-integrations/compare/v1.15.0...v1.16.0) (2024-01-10)
+
+
+### Features
+
+* logging ([a771679](https://github.com/yuuki14202028/revanced-integrations/commit/a771679aa2ebab3e7a3a77efed4c9858bc73b74a))
+* logging ([c95699c](https://github.com/yuuki14202028/revanced-integrations/commit/c95699c1a97f74e43eca66d71c0e3f12158e1ec1))
+
 # [1.15.0](https://github.com/yuuki14202028/revanced-integrations/compare/v1.14.0...v1.15.0) (2024-01-10)
 
 
