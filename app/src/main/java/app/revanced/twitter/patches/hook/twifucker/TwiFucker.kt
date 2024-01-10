@@ -214,7 +214,12 @@ internal object TwiFucker {
     fun JSONArray.entriesRemoveWhoToBlue() {
         val entryRemoveIndex = mutableListOf<Int>()
         forEachIndexed { entryIndex, entry ->
-            Log.d("ReVanced", "にゃんcontent content: ${entry.optJSONObject("content")?.optJSONObject("content")}")
+            Log.d("ReVanced", "にゃん~~:${entry.entryIsWhoToBlue()}: ${
+                entry.optJSONObject("content")
+                    ?.optJSONObject("content")
+                    ?.optJSONObject("tweetResult")
+                    ?.optJSONObject("result")
+            }")
             if (!entry.entryIsWhoToBlue()) return@forEachIndexed
 
             entryRemoveIndex.add(entryIndex)
