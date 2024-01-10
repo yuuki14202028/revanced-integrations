@@ -209,35 +209,12 @@ internal object TwiFucker {
         ?.optJSONObject("core")
         ?.optJSONObject("user_result")
         ?.optJSONObject("result")
-        ?.optBoolean("is_blue_verified") ?: optJSONObject("content")
-        ?.optJSONObject("content")
-        ?.optJSONObject("tweet-result")
-        ?.optJSONObject("result")
-        ?.optJSONObject("core")
-        ?.optJSONObject("user_result")
-        ?.optJSONObject("result")
         ?.optBoolean("is_blue_verified") ?: false
 
     fun JSONArray.entriesRemoveWhoToBlue() {
         val entryRemoveIndex = mutableListOf<Int>()
         forEachIndexed { entryIndex, entry ->
-            Log.d("ReVanced", "わ！user: ${
-                entry.optJSONObject("content")
-                    ?.optJSONObject("content")
-                    ?.optJSONObject("tweetResult")
-                    ?.optJSONObject("result")
-                    ?.optJSONObject("core")
-                    ?.optJSONObject("user_result")
-                    ?.optJSONObject("result") ?: entry.optJSONObject("content")
-                    ?.optJSONObject("content")
-                    ?.optJSONObject("tweet-result")
-                    ?.optJSONObject("result")
-                    ?.optJSONObject("core")
-                    ?.optJSONObject("user_result")
-                    ?.optJSONObject("result")
-                    ?.optBoolean("is_blue_verified")
-            }"
-            )
+            Log.d("ReVanced", "にゃんcontent content: ${entry.optJSONObject("content")?.optJSONObject("content")}")
             if (!entry.entryIsWhoToBlue()) return@forEachIndexed
 
             entryRemoveIndex.add(entryIndex)
